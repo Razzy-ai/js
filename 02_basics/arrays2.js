@@ -16,5 +16,6 @@ console.log(another_arr.flat(Infinity))
 
 console.log(Array.isArray("razzy"))
 console.log(Array.from("razzy"))
+
 console.log(Array.from({name:"razzy"}))
 
