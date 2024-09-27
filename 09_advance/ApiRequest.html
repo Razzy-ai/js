@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>heyy </h1>
+    <h2> api.github , random user generator  </h2>
+    <h2> json formatter is used to understand the data written in ajax (js plus xml)</h2>
+</body>
+<script>
+
+  const requestUrl = 'https://api.github.com/users'
+  const xhr = new XMLHttpRequest()
+
+  xhr.open('Get', requestUrl)
+//   shows at which step the process arrived
+//   console.log(xhr.readyState)
+//   open() calls by using send()
+//   xhr.send()
+
+// onreadystatechange track the the process continuosly 
+// jaise state change hoti h function execute hota h
+ xhr.onreadystatechange = function(){
+    console.log(xhr.readyState)
+    // can detect readystate and get desire data in the form of response
+    if(xhr.readyState === 4 && xhr.status === 200){
+        // this is the data taken from api.github
+        // this. => only applied on the current text
+        // console.log(this.responseText)
+
+
+         // response we get  is always in the string form to convert them into json we use json.parse then get info from the object inside the data
+         const data = JSON.parse(this.responseText)
+         console.log(typeof data)
+
+         
+        //  console.log(data.followers_url)
+        
+   
+       
+    }
+ }
+ xhr.send()
+
+</script>
+</html>
